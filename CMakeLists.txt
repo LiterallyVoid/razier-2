@@ -9,8 +9,10 @@ file(GLOB SOURCE_FILES src/*.cpp)
 add_subdirectory(deps/glfw)
 include_directories(deps/glfw/include)
 
+find_package(Box2D REQUIRED)
+include_directories(${Box2D_INCLUDE_DIRS})
+
 add_executable(razier-2
   ${SOURCE_FILES})
 
-target_link_libraries(razier-2 GL GLEW glfw png
-  ${GLEW_LIBRARIES} ${GLFW_LIBRARIES})
+target_link_libraries(razier-2 GL glfw png Box2D ${GLFW_LIBRARIES} ${Box2D_LIBRARIES})
