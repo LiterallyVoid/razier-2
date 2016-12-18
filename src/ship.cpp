@@ -27,7 +27,7 @@ void Ship::Control(int controls_) {
 void Ship::Step() {
     b2Vec2 lateralDirection = body->GetWorldVector(b2Vec2(1, 0));
     b2Vec2 lateralVelocity = b2Dot(lateralDirection, body->GetLinearVelocity()) * lateralDirection;
-    body->ApplyForce(-10 * lateralVelocity, body->GetWorldPoint(b2Vec2(0, 0)), true);
+    body->ApplyForce(-30 * lateralVelocity, body->GetWorldPoint(b2Vec2(0, 0)), true);
 
     float acceleration = 0.0f;
     float torque = 0.0f;
